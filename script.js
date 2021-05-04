@@ -14,7 +14,7 @@ d3.json('data/linksandnodes.json')
         let colorScale = d3.scaleOrdinal(d3.schemeCategory10);
 
         let simulation = d3.forceSimulation(data.nodes)
-            .force('link', d3.forceLink(data.links).id(d => d.nameSpeciesStage))
+            .force('link', d3.forceLink(data.links).id(d => d.NodeID))
             .force('charge', d3.forceManyBody())
             .force('center', d3.forceCenter(size.w / 2, size.h / 2));
 
@@ -33,7 +33,7 @@ d3.json('data/linksandnodes.json')
             .data(data.nodes)
             .join('circle')
             .attr('r', 5)
-            .attr('fill', d => colorScale(d.group))
+            .attr('fill', d => colorScale(d.value))
             .call(drag(simulation));
 
         simulation.on('tick', () => {
