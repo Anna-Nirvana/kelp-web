@@ -14,7 +14,7 @@ d3.json('data/linksandnodes.json')
         let colorScale = d3.scaleOrdinal(d3.schemeCategory10);
 
         let simulation = d3.forceSimulation(data.nodes)
-            .force('link', d3.forceLink(data.links).id(d => d.NodeID))
+            .force('link', d3.forceLink(data.links).id(d => d.nameSpeciesStage))
             .force('charge', d3.forceManyBody())
             .force('center', d3.forceCenter(size.w / 2, size.h / 2));
 
